@@ -1,28 +1,25 @@
 import React from "react";
+import "./Style.scss";
 import { Link } from "react-router-dom";
 import { AppBar } from "@material-ui/core";
 import { AiOutlineShopping, AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function NavBar() {
-  const [hidenForMenü, setHidenForMenü] = React.useState(true);
+  //const [hidenForMenü, setHidenForMenü] = React.useState(true);
 
-
-  const hidMenu = () => {
-    setHidenForMenü(true);
-  };
 
   return (
-    <AppBar position="static" style={{ height: "53px" }}>
-      <div>
-        <div style={{ width: "60%" }}>
-          <AiOutlineShoppingCart />
+    <AppBar position="static" >
+      <div className="nav-container">
+        <div className="logo" >
+          <AiOutlineShopping className="logo-content" />
         </div>
-        <div >
+        <div className="links-container">
           <Link to="/" >
             Home
           </Link>
           <Link to="/" >
-            <AiOutlineShopping />
+            <AiOutlineShoppingCart className="link-shop-icon"/> Einkaufwagen
           </Link>
           <Link to="/" >
             Einlogen
@@ -30,8 +27,8 @@ export default function NavBar() {
           <Link to="/" >
             Auslogen
           </Link>
-        </div>   
-      </div>
+        </div>  
+        </div> 
     </AppBar>
   );
 }

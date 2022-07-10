@@ -1,0 +1,32 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
+.logo {
+    width: 50%;
+}
+
+.logo-content {
+    width: 30px;
+    height: 30px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.link-shop-icon {
+    width: 20px;
+    height: 20px;
+}
