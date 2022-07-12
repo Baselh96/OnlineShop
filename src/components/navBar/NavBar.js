@@ -39,7 +39,7 @@ export default function NavBar() {
           <Link to="/profil" >
             <div className="nav-profile">
               <div className="nav-profile-content">
-                <spann>Nachname,</spann>
+                <span>Nachname,</span>
                 <span>Vorname</span>
               </div>
               <FaUserCircle className="nav-icons"/>
