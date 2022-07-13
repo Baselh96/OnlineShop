@@ -1,28 +1,38 @@
-import React from 'react';
-import "./Style.scss";
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
+import "./style.css";
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { IoMdShare } from "react-icons/io";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-
+import {MyFavoriteData} from "../../localData/MyFavoriteData";
 
 export default function RecipeReviewCard({value}) {
-  const {item} = value;
+  const {item, isFavoite} = value;
+  const [favorited, setFavorited] = useState(isFavoite);
+
+  //ToDo: Änderen durch die API-Anfrage
+  const addToFavorite = () => {
+    if(favorited) {
+      MyFavoriteData.pop();
+    } else {
+      MyFavoriteData.unshift(item);
+    }
+    setFavorited(!favorited);
+  }
 
   return (
     <Card className= "card-container">
       <CardHeader
         action={
             <div>
-               <IconButton aria-label="add to favorites">
-                    <MdFavoriteBorder />
-                    <MdFavorite />
+               <IconButton aria-label="add to favorites" onClick={addToFavorite}>
+                    {favorited ? <MdFavorite />: <MdFavoriteBorder />}
                 </IconButton>
                 <IconButton aria-label="share">
                     <IoMdShare />
@@ -40,7 +50,7 @@ export default function RecipeReviewCard({value}) {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {item.description.length < 45 ? item.description: item.description.substring(0, 42)+"..." }
+          {item.description.length < 40 ? item.description: item.description.substring(0, 36)+"..." }
         </Typography>
       </CardContent>
       <CardActions disableSpacing className='card-actions'> 

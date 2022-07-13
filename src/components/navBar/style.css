@@ -1,0 +1,33 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 55px;
+}
+
+.nav-logo {
+    width: 5%;
+}
+
+.nav-search {
+    width: 45%;
+    border-style: groove;
+}
+.nav-icons {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+    
+}
+.nav-links-container a {
+    text-decoration: none;
+    color: white;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Style.scss";
+import "./style.css";
 import {CardData} from "../../localData/CardData";
 import Card from "../../components/card";
 
@@ -12,7 +12,7 @@ export default function LandingPage() {
   return (
     <div className='landingPage-container'>
       {CardData.map((item, key) => {
-        return <Card key = {key} value = {{item}} />
+        return <Card key = {key} value = {{item, isFavoite: false}} />
       })}
     </div>
   );

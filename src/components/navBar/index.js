@@ -1,7 +1,7 @@
 import React from "react";
-import "./Style.scss";
+import "./style.css";
 import { Link } from "react-router-dom";
-import { AppBar } from "@material-ui/core";
+import { AppBar } from "@mui/material";
 import { AiOutlineShopping } from "react-icons/ai";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
@@ -14,8 +14,11 @@ export default function NavBar() {
   return (
     <AppBar position="static" >
       <div className="nav-container">
-        <div className="logo" >
+        <div className="nav-logo" >
           <AiOutlineShopping className="nav-icons" />
+        </div>
+        <div className="nav-search" >
+          search
         </div>
         <div className="nav-links-container">
           <Link to="/" >
@@ -33,17 +36,11 @@ export default function NavBar() {
           <Link to="/login" >
             <strong>Einlogen</strong>
           </Link>
-          <Link to="/login" >
+          {false && <Link to="/login" >
             <strong>Auslogen</strong>
-          </Link>
+          </Link>}
           <Link to="/profil" >
-            <div className="nav-profile">
-              <div className="nav-profile-content">
-                <span>Nachname,</span>
-                <span>Vorname</span>
-              </div>
-              <FaUserCircle className="nav-icons"/>
-            </div>
+            <FaUserCircle className="nav-icons"/>
           </Link>
         </div>  
         </div> 
