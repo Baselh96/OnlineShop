@@ -1,18 +1,16 @@
 
-.profil-container {
-    max-width: 86%;
-    height: calc(100vh - 180px);
+.profil-card {
+    max-width: 90%;
+    height: calc(100vh - 150px);
     margin: 2% 5% ;
-    padding: 2%;
-    background-color: rgb(250, 250, 250);
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    padding: 1%;
 }
 
-.profil-container-item {
+.profil-content {
+    height: 90%;
+}
+
+.profil-content-item {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -5,6 +5,9 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import {UserData} from "../../localData/UserData";
 import MuiAlert from '@mui/material/Alert';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -42,25 +45,27 @@ export default function ProfilPage() {
 
 
   return (
-    <div position="static" className='profil-container'>
-      <div className='profil-container-item'>
-        <span className='label'>Name: </span>
-        <TextField className='textfield' onChange={(e) => user.name = e.target.value} required label="Required" defaultValue= {user.name} />        
-      </div>
-      <div className='profil-container-item'>
-        <span className='label'>E-Mail: </span>
-        <TextField className='textfield' type="email" onChange={(e) => user.email = e.target.value} required label="Required" defaultValue= {user.email} /> 
-      </div>
-      <div className='profil-container-item'>
-        <span className='label'>Passwort: </span>
-        <TextField className='textfield' type="password" onChange={(e) => user.password = e.target.value} required label="Required" defaultValue= {user.password} />        
-      </div>
-      <div className='profil-container-item'>
-        <span className='label'>Passwortwiederholung: </span>
-        <TextField className='textfield' type="password" onChange={(e) => setRepeatedPassword(e.target.value)} required label="Required" defaultValue= {user.password} />      
-      </div>
-      <div className='profil-container-item'>
-        <Button variant="contained" onClick={handleClick}>SPEICHERN</Button>
+    <Card className= "profil-card displayFlex">
+      <CardContent className='profil-content displayFlex'>
+        <div className='profil-content-item'>
+          <span className='label'>Name: </span>
+          <TextField className='textfield' onChange={(e) => user.name = e.target.value} required label="Required" defaultValue= {user.name} />        
+        </div>
+        <div className='profil-content-item'>
+          <span className='label'>E-Mail: </span>
+          <TextField className='textfield' type="email" onChange={(e) => user.email = e.target.value} required label="Required" defaultValue= {user.email} /> 
+        </div>
+        <div className='profil-content-item'>
+          <span className='label'>Passwort: </span>
+          <TextField className='textfield' type="password" onChange={(e) => user.password = e.target.value} required label="Required" defaultValue= {user.password} />        
+        </div>
+        <div className='profil-content-item'>
+          <span className='label'>Passwortwiederholung: </span>
+          <TextField className='textfield' type="password" onChange={(e) => setRepeatedPassword(e.target.value)} required label="Required" defaultValue= {user.password} />      
+        </div>
+      </CardContent>
+      <CardActions disableSpacing className='card-actions'> 
+        <Button variant="outlined" onClick={handleClick}>SPEICHERN</Button>
 
         <Snackbar open={openForSuccess} autoHideDuration={3000} onClose={() => setOpenForSuccess(false)}>
           <Alert onClose={() => setOpenForSuccess(false)} severity="success" sx={{ width: '100%' }}>
@@ -73,7 +78,7 @@ export default function ProfilPage() {
             {error}
           </Alert>
         </Snackbar>
-      </div>
-    </div>
+      </CardActions>
+    </Card>
   );
 }

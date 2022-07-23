@@ -1,0 +1,10 @@
+.displayFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nav-search {
+    width: 45%;
+    border-style: groove;
+}

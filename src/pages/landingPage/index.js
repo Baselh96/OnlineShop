@@ -12,7 +12,7 @@ export default function LandingPage() {
   return (
     <div className='landingPage-container'>
       {CardData.map((item, key) => {
-        return <Card key = {key} value = {{item, isFavoite: false}} />
+        return <Card key = {key} value = {{item, isFavoite: false, isAdmin: false}} />
       })}
     </div>
   );

@@ -13,7 +13,7 @@ import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import {MyFavoriteData} from "../../localData/MyFavoriteData";
 
 export default function RecipeReviewCard({value}) {
-  const {item, isFavoite} = value;
+  const {item, isFavoite, isAdmin} = value;
   const [favorited, setFavorited] = useState(isFavoite);
 
   //ToDo: Änderen durch die API-Anfrage
@@ -31,13 +31,13 @@ export default function RecipeReviewCard({value}) {
       <CardHeader
         action={
             <div>
-               <IconButton aria-label="add to favorites" onClick={addToFavorite}>
+               {!isAdmin && <IconButton aria-label="add to favorites" onClick={addToFavorite}>
                     {favorited ? <MdFavorite />: <MdFavoriteBorder />}
-                </IconButton>
-                <IconButton aria-label="share">
+                </IconButton>}
+                {!isAdmin && <IconButton aria-label="share">
                     <IoMdShare />
-                </IconButton>
-          </div>
+                </IconButton>}
+            </div>
         }
         title= {item.title}
         //später durch subheader ersetzen
@@ -54,12 +54,18 @@ export default function RecipeReviewCard({value}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing className='card-actions'> 
-        <Button variant="outlined" color="primary" >
+        {!isAdmin && <Button variant="outlined" color="primary" >
           anzeigen
-        </Button>
-        <Button variant="outlined" color="primary" >
+        </Button>}
+        {!isAdmin && <Button variant="outlined" color="primary" >
           kaufen
-        </Button>
+        </Button>}
+        {isAdmin && <Button variant="outlined" color="primary" >
+          löschen
+        </Button>}
+        {isAdmin && <Button variant="outlined" color="primary" >
+          bearbeiten
+        </Button>}
       </CardActions>
     </Card>
   );

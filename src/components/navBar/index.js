@@ -17,8 +17,15 @@ export default function NavBar() {
         <div className="nav-logo" >
           <AiOutlineShopping className="nav-icons" />
         </div>
+        {/*
         <div className="nav-search" >
           search
+        </div>
+  */}
+        <div className="nav-links-container">
+          <Link to="/myArticles" >
+            <strong>Artikels</strong>
+          </Link>
         </div>
         <div className="nav-links-container">
           <Link to="/" >
